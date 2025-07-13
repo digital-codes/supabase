@@ -37,8 +37,14 @@ export const HelpPopover = () => {
         <ButtonTooltip
           id="help-popover-button"
           type="text"
-          className="px-1"
-          icon={<HelpCircle size={16} strokeWidth={1.5} className="text-foreground-light" />}
+          className="rounded-none w-[32px] h-[30px] group"
+          icon={
+            <HelpCircle
+              size={18}
+              strokeWidth={1.5}
+              className="!h-[18px] !w-[18px] text-foreground-light group-hover:text-foreground"
+            />
+          }
           tooltip={{ content: { side: 'bottom', text: 'Help' } }}
           onClick={() => {
             sendEvent({
@@ -71,9 +77,18 @@ export const HelpPopover = () => {
                       title:
                         'I can help you with your project, here are some example prompts to get you started:',
                       prompts: [
-                        'Summarise my database health and performance',
-                        'View and debug my edge function logs',
-                        'Implement row level security for my tables',
+                        {
+                          label: 'Database Health',
+                          description: 'Summarise my database health and performance',
+                        },
+                        {
+                          label: 'Debug Logs',
+                          description: 'View and debug my edge function logs',
+                        },
+                        {
+                          label: 'RLS Setup',
+                          description: 'Implement row level security for my tables',
+                        },
                       ],
                     },
                   })
